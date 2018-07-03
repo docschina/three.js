@@ -7,23 +7,23 @@ var list = {
 			"通过模块导入": "manual/introduction/Import-via-modules",
 			"浏览器支持": "manual/introduction/Browser-support",
 			"WebGL 兼容检测": "manual/introduction/WebGL-compatibility-check",
-			"How to run things locally": "manual/introduction/How-to-run-things-locally",
-			"Drawing Lines": "manual/introduction/Drawing-lines",
-			"Creating Text": "manual/introduction/Creating-text",
-			"Migration Guide": "manual/introduction/Migration-guide",
-			"Code Style Guide": "manual/introduction/Code-style-guide",
+			"如何本地运行": "manual/introduction/How-to-run-things-locally",
+			"绘制线段": "manual/introduction/Drawing-lines",
+			"创建文本": "manual/introduction/Creating-text",
+			"迁移指南": "manual/introduction/Migration-guide",
+			"编码风格": "manual/introduction/Code-style-guide",
 			"FAQ": "manual/introduction/FAQ",
-			"Useful links": "manual/introduction/Useful-links"
+			"链接集": "manual/introduction/Useful-links"
 		},
 
-		"Next Steps": {
-			"How to update things": "manual/introduction/How-to-update-things",
-			"Matrix transformations": "manual/introduction/Matrix-transformations",
-			"Animation System": "manual/introduction/Animation-system"
+		"下一步": {
+			"如何更新物体": "manual/introduction/How-to-update-things",
+			"矩阵变换": "manual/introduction/Matrix-transformations",
+			"动画系统": "manual/introduction/Animation-system"
 		},
 
-		"Build Tools": {
-			"Testing with NPM": "manual/buildTools/Testing-with-NPM"
+		"构建工具": {
+			"通过NPM测试": "manual/buildTools/Testing-with-NPM"
 		}
 
 	},
