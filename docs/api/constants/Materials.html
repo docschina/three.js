@@ -8,40 +8,40 @@
 		<link type="text/css" rel="stylesheet" href="page.css" />
 	</head>
 	<body>
-		<h1>Material Constants</h1>
+		<h1>Material（材质）常量</h1>
 
 		<div class="desc">
-		These constants define properties common to all material types,
-		with the exception of Texture Combine Operations which only apply to [page:MeshBasicMaterial.combine MeshBasicMaterial], [page:MeshLambertMaterial.combine MeshLambertMaterial] and [page:MeshPhongMaterial.combine MeshPhongMaterial].<br />
+		这些常量定义了所有 material（材质）类型的公共属性。
+		除了 Texture Combine Operations（纹理结合操作），其仅适用于 [page:MeshBasicMaterial.combine MeshBasicMaterial]， [page:MeshLambertMaterial.combine MeshLambertMaterial] 和 [page:MeshPhongMaterial.combine MeshPhongMaterial]。<br />
 		</div>
 
 
-		<h2>Side</h2>
+		<h2>Side（面）</h2>
 		<code>
 		THREE.FrontSide
 		THREE.BackSide
 		THREE.DoubleSide
 		</code>
 		<div>
-		Defines which side of faces will be rendered - front, back or both.
-		Default is [page:Constant FrontSide].
+		设置哪一面会被渲染 —— 前面，后面或双面。
+		默认值为 [page:Constant FrontSide].
 		</div>
 
 
-		<h2>Colors</h2>
+		<h2>颜色</h2>
 		<code>
 		THREE.NoColors
 		THREE.FaceColors
 		THREE.VertexColors
 		</code>
 		<div>
-		[page:Constant NoColors] is the default and applies the material's color to all faces.<br />
-		[page:Constant FaceColors] colors faces according to each [page:Face3 Face3][property:Color color] value.<br />
-		[page:Constant VertexColors] colors faces according to each [page:Face3 Face3][property:Array vertexColors] value. This is an array of three [page:Color Color]s, one for each vertex in the face.<br />
-		See the [example:webgl_geometry_colors geometry / colors] example.
+		[page:Constant NoColors] 为默认值，对所有的面使用 material（材质）的颜色。<br />
+		[page:Constant FaceColors] 根据每个 [page:Face3 Face3][property:Color color] 值对面着色。<br />
+		[page:Constant VertexColors] 根据每个 [page:Face3 Face3][property:Array vertexColors] 值对面着色。此类型为三个 [page:Color Color] 组成的数组，每一个都对应面的一个 vertex （顶点）。<br />
+		查看示例 [example:webgl_geometry_colors geometry / colors]。
 		</div>
 
-		<h2>Blending Mode</h2>
+		<h2>Blending Mode（混合模式）</h2>
 		<code>
 		THREE.NoBlending
 		THREE.NormalBlending
@@ -53,13 +53,13 @@
 
 
 		<div>
-		These control the source and destination blending equations for the material's RGB and Alpha sent to the WebGLRenderer for use by WebGL.<br />
-		[page:Constant NormalBlending] is the default.<br />
-		Note that [page:Constant CustomBlending] must be set to use [page:CustomBlendingEquation Custom Blending Equations].<br />
-		See the [example:webgl_materials_blending materials / blending] example.<br />
+		当使用 WebGL 时传入 WebGLRenderer 的 material（材质）的 RGB 和 Alpha值时，这些值控制着 blending equations（混合等式）的源和目标。<br />
+		[page:Constant NormalBlending] 为默认值。<br />
+		注意，当使用 [page:CustomBlendingEquation Custom Blending Equations] 时，必须设置 [page:Constant CustomBlending]。<br />
+		查看示例 [example:webgl_materials_blending materials / blending]。<br />
 		</div>
 
-		<h2>Depth Mode</h2>
+		<h2>Depth Mode（深度模式）</h2>
 		<code>
 		THREE.NeverDepth
 		THREE.AlwaysDepth
@@ -70,29 +70,29 @@
 		THREE.NotEqualDepth
 		</code>
 		<div>
-		Which depth function the material uses to compare incoming pixels Z-depth against the current Z-depth buffer value. If the result of the comparison is true, the pixel will be drawn.<br />
-		[page:Materials NeverDepth] will never return true.<br />
-		[page:Materials AlwaysDepth] will always return true.<br />
-		[page:Materials LessDepth] will return true if the incoming pixel Z-depth is less than the current buffer Z-depth.<br />
-		[page:Materials LessEqualDepth] is the default and will return true if the incoming pixel Z-depth is less than or equal to the current buffer Z-depth.<br />
-		[page:Materials GreaterEqualDepth] will return true if the incoming pixel Z-depth is greater than or equal to the current buffer Z-depth.<br />
-		[page:Materials GreaterDepth] will return true if the incoming pixel Z-depth is greater than the current buffer Z-depth.<br />
-		[page:Materials NotEqualDepth] will return true if the incoming pixel Z-depth is not equal to the current buffer Z-depth.<br />
+		material （材质）用来比较当前的像素 Z-depth 缓存值和传入的像素 Z-depth 值的函数。若比较结果为 true 则将会绘制该像素。<br />
+		[page:Materials NeverDepth] 永不返回 true。<br />
+		[page:Materials AlwaysDepth] 始终返回 true。<br />
+		[page:Materials LessDepth] 返回 true，若传入的像素 Z-depth 值小于当前的 Z-depth 缓存值。<br />
+		[page:Materials LessEqualDepth] 为默认值，若传入的像素 Z-depth 值小于或等于当前的 Z-depth 缓存值时返回 true。<br />
+		[page:Materials GreaterEqualDepth] 返回 true，若传入的像素 Z-depth 值大于或等于当前的 Z-depth 缓存值。<br />
+		[page:Materials GreaterDepth] 返回 true，若传入的像素 Z-depth 值大于当前的 Z-depth 缓存值。<br />
+		[page:Materials NotEqualDepth] 返回 true，若传入的像素 Z-depth 值不等于当前的 Z-depth 缓存值。<br />
 		</div>
 
-		<h2>Texture Combine Operations</h2>
+		<h2>Texture Combine Operations（纹理结合操作）</h2>
 		<code>
 		THREE.MultiplyOperation
 		THREE.MixOperation
 		THREE.AddOperation
 		</code>
-		These define how the result of the surface's color is combined with the environment map (if present), for [page:MeshBasicMaterial.combine MeshBasicMaterial], [page:MeshLambertMaterial.combine MeshLambertMaterial] and [page:MeshPhongMaterial.combine MeshPhongMaterial]. <br />
-		[page:Constant MultiplyOperation] is the default and multiplies the environment map color with the surface color.<br />
-		[page:Constant MixOperation] uses reflectivity to blend between the two colors.<br />
-		[page:Constant AddOperation] adds the two colors.
+		设置 [page:MeshBasicMaterial.combine MeshBasicMaterial]， [page:MeshLambertMaterial.combine MeshLambertMaterial] 和 [page:MeshPhongMaterial.combine MeshPhongMaterial] 材质时，定义了物体表面的颜色如何与 environment map（环境地图）（若存在）结合。<br />
+		[page:Constant MultiplyOperation] 为默认值，将 environment map（环境地图）颜色与物体表面颜色相乘。<br />
+		[page:Constant MixOperation] 使用 reflectivity （反射）混合两种颜色。<br />
+		[page:Constant AddOperation] 叠加两种颜色。
 
 
-		<h2>Source</h2>
+		<h2>源码</h2>
 
 		[link:https://github.com/mrdoob/three.js/blob/master/src/constants.js src/constants.js]
 	</body>

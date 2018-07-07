@@ -8,9 +8,9 @@
 		<link type="text/css" rel="stylesheet" href="page.css" />
 	</head>
 	<body>
-		<h1>Texture Constants</h1>
+		<h1>Texture （纹理）常量</h1>
 
-		<h2>Mapping Modes</h2>
+		<h2>Mapping Modes（映射模式）</h2>
 		<code>
 		THREE.UVMapping
 		THREE.CubeReflectionMapping
@@ -23,68 +23,68 @@
 		</code>
 
 		<div>
-		These define the texture's mapping mode.<br />
-		[page:Constant UVMapping] is the default, and maps the texture using the mesh's UV coordinates.<br /><br />
+		定义了纹理的映射模式。<br />
+		[page:Constant UVMapping] 为默认值，使用 mesh（网格）的 UV coordinates（UV坐标）映射纹理。<br /><br />
 
-		The rest define environment mapping types.<br /><br />
+		其余的定义环境映射类型。<br /><br />
 
-		[page:Constant CubeReflectionMapping] and [page:Constant CubeRefractionMapping] are for
-		use with a [page:CubeTexture CubeTexture], which is made up of six textures, one for each face of the cube.<br />
-		[page:Constant CubeReflectionMapping] is the default for a [page:CubeTexture CubeTexture]. <br /><br />
+		[page:Constant CubeReflectionMapping] 和 [page:Constant CubeRefractionMapping] 适用于 [page:CubeTexture CubeTexture]，
+		由六个纹理组成，每个纹理对应一个面。<br />
+		[page:Constant CubeReflectionMapping] 是 [page:CubeTexture CubeTexture] 的默认值。 <br /><br />
 
-		[page:Constant EquirectangularReflectionMapping] and [page:Constant EquirectangularRefractionMapping]
-		are for use with an equirectangular environment map.  Also called a lat-long map, an equirectangular 
-		texture represents a 360-degree view along the horizontal centerline, and a 180-degree view along the 
-		vertical axis, with the top and bottom edges of the image corresponding to the north and south poles 
-		of a mapped sphere.<br /><br />
+		[page:Constant EquirectangularReflectionMapping] 和 [page:Constant EquirectangularRefractionMapping] 适用于 equirectangular 环境贴图。
+		也称为 lat-long map（经纬映射），
+		equirectangular 纹理表示沿水平中心线的 360 度视图，以及沿垂直轴的180度视图，
+		图像的顶部和底部边缘分别映射球体的北极和南极。
+		<br /><br />
 
-		[page:Constant SphericalReflectionMapping] is for use with a spherical reflection map such as may be obtained
-		by cropping a photograph of a mirrored ball.  Sphere maps will be rendered "facing" the camera, irrespective
-		of the position of the camera relative to the cubemapped object or surface.<br /><br />
+		[page:Constant SphericalReflectionMapping] 专用于 spherical reflection map（球形反射贴图），
+		可通过裁剪 mirrored ball（镜面球）的图片得到。无论相机与立方体贴图对象或表面的位置如何相对，
+		球体贴图都将呈现为“面向”相机。<br /><br />
 
-		See the [example:webgl_materials_envmaps materials / envmaps] example.
+		查看示例 [example:webgl_materials_envmaps materials / envmaps]。
 		</div>
 
 
-		<h2>Wrapping Modes</h2>
+		<h2>Wrapping Modes（包装模式）</h2>
 		<code>
 		THREE.RepeatWrapping
 		THREE.ClampToEdgeWrapping
 		THREE.MirroredRepeatWrapping
 		</code>
 		<div>
-		These define the texture's [page:Texture.wrapS wrapS] and [page:Texture.wrapT wrapT] properties,
-		which define horizontal and vertical texture wrapping.<br /><br />
+		定义了纹理的 [page:Texture.wrapS wrapS] 和 [page:Texture.wrapT wrapT] 属性，
+		它们分别定义了水平和垂直纹理包装。<br /><br />
 
-		With [page:constant RepeatWrapping] the texture will simply repeat to infinity.<br /><br />
+		使用 [page:constant RepeatWrapping]，纹理将简单的无限重复。<br /><br />
 
-		[page:constant ClampToEdgeWrapping] is the default.
-		The last pixel of the texture stretches to the edge of the mesh.<br /><br />
+		[page:constant ClampToEdgeWrapping] 为默认值。
+		纹理最后的像素将延伸至网格的边缘。<br /><br />
 
-		With [page:constant MirroredRepeatWrapping] the texture will repeats to infinity, mirroring on each repeat.<br />
+		使用 [page:constant MirroredRepeatWrapping]，纹理将无限镜像重复。<br />
 		</div>
 
-		<h2>Magnification Filters</h2>
+		<h2>Magnification Filters（放大滤镜）</h2>
 		<code>
 		THREE.NearestFilter
 		THREE.LinearFilter
 		</code>
 
 		<div>
-		For use with a texture's [page:Texture.magFilter magFilter]	property,
-		these define the texture magnification function to be used when the pixel being textured maps to an
-		area less than or equal to one texture element (texel).<br /><br />
+		与纹理的 [page:Texture.magFilter magFilter]	属性一同使用，
+		这些属性定义了当纹理像素映射到小于或等于一个纹理元素（texel）的区域时要使用的放大函数。
+		<br /><br />
 
-		[page:constant NearestFilter] returns the value of the texture element that is nearest
-		(in Manhattan distance) to the specified texture coordinates.<br /><br />
+		[page:constant NearestFilter] 返回与指定纹理坐标最接近（在曼哈顿距离内）的纹理元素的值。
+		<br /><br />
 
-		[page:constant LinearFilter] is the default and returns the weighted average
-		of the four texture elements that are closest to the specified texture coordinates,
-		and can include items wrapped or repeated from other parts of a texture,
-		depending on the values of [page:Texture.wrapS wrapS] and [page:Texture.wrapT wrapT], and on the exact mapping.
+		[page:constant LinearFilter] 为默认值，
+		它返回最接近指定纹理坐标的四个纹理元素的加权平均值，
+		并且包含被纹理的其他部分包装或重复的子项，
+		具体取决于 [page:Texture.wrapS wrapS] 和 [page:Texture.wrapT wrapT] ，以及确切的映射值。
 		</div>
 
-		<h2>Minification Filters</h2>
+		<h2>Minification Filters（缩小过滤器）</h2>
 		<code>
 		THREE.NearestFilter
 		THREE.NearestMipMapNearestFilter
@@ -95,35 +95,35 @@
 		</code>
 
 		<div>
-		For use with a texture's [page:Texture.minFilter minFilter]	property, these define
-		the texture minifying function that is used whenever the pixel being textured maps
-		to an area greater than one texture element (texel).<br /><br />
+		与纹理的 [page:Texture.minFilter minFilter]	属性一同使用，
+		这些属性定义了当纹理像素映射到大于一个纹理元素（texel）的区域时要使用的缩小函数。
+		<br /><br />
 
-		In addition to [page:constant NearestFilter] and [page:constant LinearFilter],
-		the following four functions can be used for minification:<br /><br />
+		除了 [page:constant NearestFilter] 和 [page:constant LinearFilter]，
+		还可以使用以下的四个函数进行缩小：<br /><br />
 
-		[page:constant NearestMipMapNearestFilter] chooses the mipmap that most closely
-		matches the size of the pixel being textured
-		and uses the [page:constant NearestFilter] criterion (the texel nearest to the
-		center of the pixel) to produce a texture value.<br /><br />
+		[page:constant NearestMipMapNearestFilter] 
+		选择最接近映射纹理像素大小的 mipmap，
+		使用 [page:constant NearestFilter] 标准（最接近像素中心的纹理元素）来生成纹理值。
+		<br /><br />
 
-		[page:constant NearestMipMapLinearFilter] chooses the two mipmaps that most closely
-		match the size of the pixel being textured and uses the [page:constant NearestFilter] criterion to produce
-		a texture value from each mipmap. The final texture value is a weighted average of those two values.<br /><br />
+		[page:constant NearestMipMapLinearFilter] 选择两个与纹理像素大小最匹配的 mipmap
+		使用 [page:constant NearestFilter] 标准从每个 mipmap 生成纹理值。
+		最终的纹理值是这两个值的加权平均值。<br /><br />
 
-		[page:constant LinearMipMapNearestFilter] chooses the mipmap that most closely matches
-		the size of the pixel being textured and uses the [page:constant LinearFilter] criterion
-		(a weighted average of the four texels that are closest to the center of the pixel)
-		to produce a texture value.<br /><br />
+		[page:constant LinearMipMapNearestFilter] 选择最接近映射纹理像素大小的 mipmap，
+		使用 [page:constant LinearFilter] 标准
+		（最接近像素中心的四个纹素的加权平均值）来生成纹理值。
+		<br /><br />
 
-		[page:constant LinearMipMapLinearFilter] is the default and chooses the two mipmaps
-		that most closely match the size of the pixel being textured and uses the [page:constant LinearFilter] criterion
-		to produce a texture value from each mipmap. The final texture value is a weighted average of those two values.<br /><br />
+		[page:constant LinearMipMapLinearFilter] 为默认值，选择两个与纹理像素大小最匹配的 mipmap
+		使用 [page:constant LinearFilter] 标准从每个 mipmap 生成纹理值。
+		最终的纹理值是这两个值的加权平均值。<br /><br />
 
-		See the [example:webgl_materials_texture_filters materials / texture / filters] example.
+		参考示例 [example:webgl_materials_texture_filters materials / texture / filters]。
 		</div>
 
-		<h2>Types</h2>
+		<h2>类型</h2>
 		<code>
 		THREE.UnsignedByteType
 		THREE.ByteType
@@ -139,12 +139,12 @@
 		THREE.UnsignedInt248Type
 		</code>
 		<div>
-		For use with a texture's [page:Texture.type type]	property, which must correspond to the correct format. See below for details.<br /><br />
+		适用于纹理的 [page:Texture.type type]	属性，该属性必须与正确的格式相对应。参阅下文了解详情。<br /><br />
 
-		[page:constant UnsignedByteType] is the default.
+		[page:constant UnsignedByteType] 为默认值。
 		</div>
 
-		<h2>Formats</h2>
+		<h2>格式</h2>
 		<code>
 		THREE.AlphaFormat
 		THREE.RGBFormat
@@ -156,43 +156,43 @@
 		THREE.DepthStencilFormat
 		</code>
 		<div>
-		For use with a texture's [page:Texture.format format]	property, these define
-		how elements of a 2d texture, or *texels*, are read by shaders.<br /><br />
+		与纹理的 [page:Texture.format format]	属性一同使用，
+		这些属性定义 shaders （着色器）如何读取 2D 纹理（即 *texels* ）。<br /><br />
 
-		[page:constant AlphaFormat] discards the red, green and blue components and reads just the alpha component.
-		The [page:Texture.type type] must be [page:constant UnsignedByteType].<br /><br />
+		[page:constant AlphaFormat] 忽略红，绿和蓝值，只读取 alpha 值。
+		[page:Texture.type type] 必须设置为 [page:constant UnsignedByteType]。<br /><br />
 
-		[page:constant RGBFormat] discards the alpha components and reads the red, green and blue components.
-		The [page:Texture.type type] must be [page:constant UnsignedByteType] or [page:constant UnsignedShort565Type].<br /><br />
+		[page:constant RGBFormat] 忽略 alpha 值，只读取红，绿和蓝值。
+		[page:Texture.type type] 必须设置为 [page:constant UnsignedByteType] 或 [page:constant UnsignedShort565Type]。<br /><br />
 
-		[page:constant RGBAFormat] is the default and reads the red, green, blue and alpha components.
-		The [page:Texture.type type] must be [page:constant UnsignedByteType], [page:constant UnsignedShort4444Type] or [page:constant THREE.UnsignedShort5551Type].<br /><br />
+		[page:constant RGBAFormat] 为默认值，读取红，绿，蓝和 alpha 值。
+		[page:Texture.type type] 必须设置为 [page:constant UnsignedByteType], [page:constant UnsignedShort4444Type] 或 [page:constant THREE.UnsignedShort5551Type]。<br /><br />
 
-		[page:constant LuminanceFormat] reads each element as a single luminance component.
-		 This is then converted to a floating point, clamped to the range [0,1], and then assembled
-		 into an RGBA element by placing the luminance value in the red, green and blue channels,
-		 and attaching 1.0 to the alpha channel. The [page:Texture.type type] must be [page:constant UnsignedByteType].<br /><br />
+		[page:constant LuminanceFormat] 将每个元素读取为独立 luminance（亮度值）。
+		然后将其转换为范围在 [0,1] 的浮点数，
+		然后通过将亮度加到红，绿和蓝通道中，并将Alpha通道设置为 1.0，将其组装成 RGBA 元素。
+		[page:Texture.type type] 必须设置为 [page:constant UnsignedByteType]。<br /><br />
 
-		[page:constant LuminanceAlphaFormat] reads each element as a luminance/alpha double.
-		The same process occurs as for the [page:constant LuminanceFormat], except that the
-		alpha channel may have values other than *1.0*. The [page:Texture.type type] must be [page:constant UnsignedByteType].<br /><br />
+		[page:constant LuminanceAlphaFormat] 将每个元素读取为亮度/alpha 值。
+		除了 alpha 通道可能设置 *1.0* 以外的值，处理过程与 [page:constant LuminanceFormat] 相同。
+		[page:Texture.type type] 必须设置为 [page:constant UnsignedByteType]。<br /><br />
 
-		[page:constant RGBEFormat] is identical to [page:constant RGBAFormat].<br /><br />
+		[page:constant RGBEFormat] 与 [page:constant RGBAFormat] 相同。<br /><br />
 
-		[page:constant DepthFormat] reads each element as a single depth value, converts it to floating point, and clamps to the range [0,1].
-		The [page:Texture.type type] must be [page:constant UnsignedIntType] or [page:constant UnsignedShortType].
-		This is the default for [page:DepthTexture DepthTexture].<br /><br />
+		[page:constant DepthFormat] 将每个元素读取为一个 depth （深度值），并将其转换为范围在 [0,1] 的浮点数，
+		[page:Texture.type type] 必须设置为 [page:constant UnsignedIntType] 或 [page:constant UnsignedShortType]。
+		这是 [page:DepthTexture DepthTexture] 的默认值。<br /><br />
 
-		[page:constant DepthStencilFormat] reads each element is a pair of depth and stencil values.
-		The depth component of the pair is interpreted as in [page:constant DepthFormat].
-		The stencil component is interpreted based on the depth + stencil internal format.
-		The [page:Texture.type type] must be [page:constant UnsignedInt248Type].<br /><br />
+		[page:constant DepthStencilFormat] 将每个元素作为一对 depth （深度）和 stencil（模板）值。
+		其中深度值将按 [page:constant DepthFormat] 读取。
+		模板值基于深度 + 模板的内部格式进行读取。
+		[page:Texture.type type] 必须设置为 [page:constant UnsignedInt248Type]。<br /><br />
 
-		Note that the texture must have the correct [page:Texture.type type] set, as described above.
-		See <a href="https://developer.mozilla.org/en/docs/Web/API/WebGLRenderingContext/texImage2D">this page</a> for details.
+		注意，纹理必须有如上的所述的正确 [page:Texture.type type] 值，
+		详细信息，参考 <a href="https://developer.mozilla.org/en/docs/Web/API/WebGLRenderingContext/texImage2D">此页面</a>。
 		</div>
 
-		<h2>DDS / ST3C Compressed Texture Formats</h2>
+		<h2>DDS / ST3C 压缩纹理格式</h2>
 		<code>
 		THREE.RGB_S3TC_DXT1_Format
 		THREE.RGBA_S3TC_DXT1_Format
@@ -200,21 +200,21 @@
 		THREE.RGBA_S3TC_DXT5_Format
 		</code>
 		<div>
-		For use with a [page:CompressedTexture CompressedTexture]'s [page:Texture.format format]	property,
-		these require support for the
+		与 [page:CompressedTexture CompressedTexture] 的 [page:Texture.format format]	属性一同使用，
+		这些属性需要
 		<a href="https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_s3tc/">WEBGL_compressed_texture_s3tc</a>
-		extension. <br />
-		According to <a href="http://webglstats.com/">WebglStats</a>, as of February 2016
-		over 80% of WebGL enabled devices support this extension.<br /><br />
+		扩展的支持。 <br />
+		据 <a href="http://webglstats.com/">WebglStats</a> 统计，至 2016 年 2 月，超过 80% WebGL 设备支持此扩展。
+		<br /><br />
 
-		There are four <a href="https://en.wikipedia.org/wiki/S3_Texture_Compression">S3TC</a> formats available via this extension. These are:<br />
-		[page:constant RGB_S3TC_DXT1_Format]: A DXT1-compressed image in an RGB image format.<br />
-		[page:constant RGBA_S3TC_DXT1_Format]: A DXT1-compressed image in an RGB image format with a simple on/off alpha value.<br />
-		[page:constant RGBA_S3TC_DXT3_Format]: A DXT3-compressed image in an RGBA image format. Compared to a 32-bit RGBA texture, it offers 4:1 compression.<br />
-		[page:constant RGBA_S3TC_DXT5_Format]: A DXT5-compressed image in an RGBA image format. It also provides a 4:1 compression, but differs to the DXT3 compression in how the alpha compression is done.<br />
+		该扩展有四种 <a href="https://en.wikipedia.org/wiki/S3_Texture_Compression">S3TC</a> 格式可用。分别是：<br />
+		[page:constant RGB_S3TC_DXT1_Format]：RGB 图像格式的 DXT1 压缩图像<br />
+		[page:constant RGBA_S3TC_DXT1_Format]：RGB 图像格式的 DXT1 压缩图像，有简单的 alpha 值开/关。<br />
+		[page:constant RGBA_S3TC_DXT3_Format]：RGBA 图像格式的 DXT3 压缩图像。与 32 位 RGBA 纹理相比，提供 4:1 压缩。<br />
+		[page:constant RGBA_S3TC_DXT5_Format]：RGBA 图像格式的 DXT5 压缩图像。它还提供 4:1 压缩，但与 DXT3 压缩的不同之处在于如何对 alpha 值压缩。<br />
 		</div>
 
-		<h2>PVRTC Compressed Texture Formats</h2>
+		<h2>PVRTC 压缩纹理格式</h2>
 		<code>
 		THREE.RGB_PVRTC_4BPPV1_Format
 		THREE.RGB_PVRTC_2BPPV1_Format
@@ -222,34 +222,34 @@
 		THREE.RGBA_PVRTC_2BPPV1_Format
 		</code>
 		<div>
-		For use with a [page:CompressedTexture CompressedTexture]'s [page:Texture.format format]	property,
-		these require support for the <a href="https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_pvrtc/">WEBGL_compressed_texture_pvrtc</a>
-		extension. <br />
-		According to <a href="http://webglstats.com/">WebglStats</a>, as of February 2016
-		less than 8% of WebGL enabled devices support this extenstion.
-		PVRTC is typically only available on mobile devices with PowerVR chipsets,
-		which are mainly Apple devices.<br /><br />
+		与 [page:CompressedTexture CompressedTexture] 的 [page:Texture.format format]	属性一同使用，
+		这些属性需要 <a href="https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_pvrtc/">WEBGL_compressed_texture_pvrtc</a>
+		扩展的支持。 <br />
+		据 <a href="http://webglstats.com/">WebglStats</a> 统计，
+		至 2016 年 2 月，不足 8% WebGL 设备支持此扩展。
+		PVRTC 仅适用于具有 PowerVR 芯片组的移动设备，
+		主要是 Apple 设备。<br /><br />
 
-		There are four <a href="https://en.wikipedia.org/wiki/PVRTC">PVRTC</a> formats available via this extension. These are:<br />
-		[page:constant RGB_PVRTC_4BPPV1_Format]: RGB compression in 4-bit mode. One block for each 4×4 pixels.<br />
-		[page:constant RGB_PVRTC_2BPPV1_Format]: RGB compression in 2-bit mode. One block for each 8×4 pixels.<br />
-		[page:constant RGBA_PVRTC_4BPPV1_Format]: RGBA compression in 4-bit mode. One block for each 4×4 pixels.<br />
-		[page:constant RGBA_PVRTC_2BPPV1_Format]: RGBA compression in 2-bit mode. One block for each 8×4 pixels.<br />
+		该扩展有四种 <a href="https://en.wikipedia.org/wiki/PVRTC">PVRTC</a> 格式可用。分别是：<br />
+		[page:constant RGB_PVRTC_4BPPV1_Format]：4位模式下的RGB压缩。每 4×4 像素一块。<br />
+		[page:constant RGB_PVRTC_2BPPV1_Format]：2位模式下的RGB压缩。每 8×4 像素一块。<br />
+		[page:constant RGBA_PVRTC_4BPPV1_Format]：4位模式下的RGBA压缩。每 4×4 像素一块。<br />
+		[page:constant RGBA_PVRTC_2BPPV1_Format]：2位模式下的RGBA压缩。每 8×4 像素一块。<br />
 		</div>
 
-		<h2>ETC Compressed Texture Format</h2>
+		<h2>ETC 压缩纹理格式</h2>
 		<code>
 		THREE.RGB_ETC1_Format
 		</code>
 		<div>
-		For use with a [page:CompressedTexture CompressedTexture]'s [page:Texture.format format]	property,
-		these require support for the <a href="https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_etc1/">WEBGL_compressed_texture_etc1</a>
-		extension. <br />
-		According to <a href="http://webglstats.com/">WebglStats</a>, as of February 2016
-		just over 13% of WebGL enabled devices support this extenstion.<br /><br />
+		与 [page:CompressedTexture CompressedTexture] 的 [page:Texture.format format]	属性一同使用，
+		这些属性需要 <a href="https://www.khronos.org/registry/webgl/extensions/WEBGL_compressed_texture_etc1/">WEBGL_compressed_texture_etc1</a>
+		扩展的支持。<br />
+		据 <a href="http://webglstats.com/">WebglStats</a> 统计，至 2016 年 2 月，
+		仅有 13% 左右的 WebGL 设备支持此扩展。<br /><br />
 		</div>
 
-		<h2>Encoding</h2>
+		<h2>编码</h2>
 		<code>
 		THREE.LinearEncoding
 		THREE.sRGBEncoding
@@ -263,16 +263,16 @@
 		THREE.RGBADepthPacking
 		</code>
 		<div>
-		For use with a Texture's [page:Texture.encoding encoding]	property.<br /><br />
+		与 [page:Texture.encoding encoding]	属性一同使用.<br /><br />
 
-		If the encoding type is changed after the texture has already been used by a material,
-		you will need to set [page:Material.needsUpdate Material.needsUpdate] to *true* to make the material recompile.<br /><br />
+		当在材质已应用纹理后再更改编码类型，
+		则需要设置 [page:Material.needsUpdate Material.needsUpdate] 为 *true* 使材质重新编译。<br /><br />
 
-		[page:constant LinearEncoding] is the default.
-		Values other than this are only valid for a material's map, envMap and emissiveMap.
+		[page:constant LinearEncoding] 为默认值。
+		除此之外的其他值仅适用于材质的贴图，envMap 和 emissiveMap。
 		</div>
 
-		<h2>Source</h2>
+		<h2>源码</h2>
 
 		[link:https://github.com/mrdoob/three.js/blob/master/src/constants.js src/constants.js]
 	</body>
