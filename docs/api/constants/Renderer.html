@@ -10,7 +10,7 @@
 	<body>
 		<h1>WebGLRenderer 常量</h1>
 
-		<h2>面部剔除模式</h2>
+		<h2>Cull Face Modes 面部剔除模式</h2>
 		<code>
 		THREE.CullFaceNone
 		THREE.CullFaceBack
@@ -19,12 +19,12 @@
 		</code>
 		<div>
 		[page:constant CullFaceNone] 禁用面部剔除。<br />
-		[page:constant CullFaceBack] 剔除背面（默认）<br />
+		[page:constant CullFaceBack] 剔除背面（默认）。<br />
 		[page:constant CullFaceFront] 剔除正面。<br />
 		[page:constant CullFaceFrontBack] 剔除正面和背面。
 		</div>
 
-		<h2>正面方向</h2>
+		<h2>Front Face Direction 正面方向</h2>
 		<code>
 		THREE.FrontFaceDirectionCW
 		THREE.FrontFaceDirectionCCW
@@ -34,21 +34,21 @@
 		[page:constant FrontFaceDirectionCCW] 将多边形的缠绕顺序设置为逆时针（默认）。
 		</div>
 
-		<h2>阴影类型</h2>
+		<h2>Shadow Types 阴影类型</h2>
 		<code>
 		THREE.BasicShadowMap
 		THREE.PCFShadowMap
 		THREE.PCFSoftShadowMap
 		</code>
 		<div>
-		这些定义了WebGLRenderer的[page：WebGLRenderer.shadowMap.type shadowMap.type]属性。<br /><br />
+		这些定义了 WebGLRenderer 的 [page:WebGLRenderer.shadowMap.type shadowMap.type] 属性。<br /><br />
 
 		[page:constant BasicShadowMap] 给出未经过滤的阴影贴图 - 速度最快但质量最低。<br />
-		[page:constant PCFShadowMap] 使用Percentage-Closer Filtering（PCF）算法过滤阴影贴图（默认）。<br />
-		[page:constant PCFSoftShadowMap] 使用Percentage-Closer Soft Shadows（PCSS）算法过滤阴影贴图。
+		[page:constant PCFShadowMap] 使用 Percentage-Closer Filtering（PCF）算法过滤阴影贴图（默认）。<br />
+		[page:constant PCFSoftShadowMap] 使用 Percentage-Closer Soft Shadows（PCSS）算法过滤阴影贴图。
 		</div>
 
-		<h2>色调映射</h2>
+		<h2>Tone Mapping 色调映射</h2>
 		<code>
 		THREE.NoToneMapping
 		THREE.LinearToneMapping
@@ -57,13 +57,12 @@
 		THREE.CineonToneMapping
 		</code>
 		<div>
-		这些定义了WebGLRenderer的[page：WebGLRenderer.toneMapping toneMapping]属性。
-		用于近似高动态范围（HDR）的外观，标准计算机显示器或移动设备屏幕的低动态范围介质。<br /><br />
+		这些定义了 WebGLRenderer 的 [page:WebGLRenderer.toneMapping toneMapping] 属性。这用于近似标准计算机监视器或移动设备屏幕的低动态范围介质上的高动态范围（HDR）的外观。<br /><br />
 
 		[page:constant NoToneMapping] 禁用色调映射。<br />
 		[page:constant LinearToneMapping] 是默认值。<br /><br />
 
-		更多详细请查看此示例[example:webgl_tonemapping WebGL / tonemapping].
+		更多详细请查看此示例 [example:webgl_tonemapping WebGL / tonemapping]。
 
 		</div>
 

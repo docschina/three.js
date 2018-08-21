@@ -44,7 +44,7 @@ visible_height = 2 * Math.tan( ( Math.PI / 180 ) * camera.fov / 2 ) * distance_f
 
 		<h2>为什么我对象的一部分不可见？</h2>
 		<div>
-			这可能是因为设置了背景剔除（face culling），面是有方向的，方向决定了哪面是正面哪面是背面。正常情况下，背景剔除会移除（不渲染）背面。 要查看这是否是您的问题，请将 material 的 side 改为 THREE.DoubleSide。
+			这可能是因为设置了背景剔除（face culling），面是有方向的，方向决定了哪面是正面哪面是背面。正常情况下，背景剔除会移除（不渲染）背面。 要查看这是否是你的问题，请将 material 的 side 改为 THREE.DoubleSide。
 			<code>material.side = THREE.DoubleSide</code>
 		</div>
 	</body>

@@ -8,26 +8,25 @@
 		<link type="text/css" rel="stylesheet" href="page.css" />
 	</head>
 	<body>
-		<h1>材料常量</h1>
+		<h1>Material Constants 材料常量</h1>
 
 		<div class="desc">
-		这些常量定义了所有材质类型共有的属性，除了 Texture Combine Operations 外仅适用于 [page:MeshBasicMaterial.combine MeshBasicMaterial], [page:MeshLambertMaterial.combine MeshLambertMaterial] 和 [page:MeshPhongMaterial.combine MeshPhongMaterial].<br />
+		这些常量定义了所有材质类型共有的属性，但 Texture Combine Operations 除外，它仅适用于[page:MeshBasicMaterial.combine MeshBasicMaterial], [page:MeshLambertMaterial.combine MeshLambertMaterial] 和 [page:MeshPhongMaterial.combine MeshPhongMaterial].<br />
 		</div>
 
 
-		<h2>面</h2>
+		<h2>Side 面</h2>
 		<code>
 		THREE.FrontSide
 		THREE.BackSide
 		THREE.DoubleSide
 		</code>
 		<div>
-		定义将要渲染面部的哪一面 - 正面，背面或两者。
-		默认为 [page:Constant FrontSide].
+		定义将要渲染面部的哪一面 - 正面，背面或两者。默认是 [page:Constant FrontSide]。
 		</div>
 
 
-		<h2>颜色</h2>
+		<h2>Colors 颜色</h2>
 		<code>
 		THREE.NoColors
 		THREE.FaceColors
@@ -35,12 +34,12 @@
 		</code>
 		<div>
 		[page:Constant NoColors] 是默认值，并将材质的颜色应用于所有面。<br />
-		[page:Constant FaceColors] 根据每个 [page:Face3 Face3][property:Color color] 的值对面进行着色。<br />
-		[page:Constant VertexColors] 根据每个 [page:Face3 Face3][property:Array vertexColors] 的值对面进行着色. 这是一个由三个[page：Color Color]组成的数组，一个用于面部中的每个顶点。<br />
-		更多详细请查看此示例[example:webgl_geometry_colors geometry / colors]。
+		[page:Constant FaceColors] 根据每个 [page:Face3 Face3] [property:Color color] 值对面进行着色。<br />
+		[page:Constant VertexColors] 根据每个 [page:Face3 Face3] [property:Array vertexColors] 值对面进行着色。这是一个三种 [page:Color Color] 组成的数组，一个用于面部的每个顶点。<br />
+		更多详细请查看此示例 [example:webgl_geometry_colors geometry / colors]。
 		</div>
 
-		<h2>混合模式</h2>
+		<h2>Blending Mode 混合模式</h2>
 		<code>
 		THREE.NoBlending
 		THREE.NormalBlending
@@ -54,11 +53,11 @@
 		<div>
 		它们控制发送到 WebGLRenderer 以供 WebGL 使用的材质RGB和Alpha的源和目标混合方程。<br />
 		[page:Constant NormalBlending] 为默认。<br />
-		请注意，[page:Constant CustomBlending] 必须设置使用 [page:CustomBlendingEquation Custom Blending Equations].<br />
-		更多详细请查看此示例[example:webgl_materials_blending materials / blending]<br />
+		请注意，[page:Constant CustomBlending] 必须设置使用 [page:CustomBlendingEquation Custom Blending Equations]。<br />
+		更多详细请查看此示例[example:webgl_materials_blending materials / blending]。<br />
 		</div>
 
-		<h2>深度模式</h2>
+		<h2>Depth Mode 深度模式</h2>
 		<code>
 		THREE.NeverDepth
 		THREE.AlwaysDepth
@@ -69,23 +68,23 @@
 		THREE.NotEqualDepth
 		</code>
 		<div>
-		材料使用哪种深度函数来比较输入像素Z-深度与当前Z-深度缓冲器值。如果比较结果为真，则将绘制像素。<br />
-		[page:Materials NeverDepth] 永远不会返回true。<br />
-		[page:Materials AlwaysDepth] 永远都会返回true。<br />
-		[page:Materials LessDepth] 如果输入像素Z-深度小于当前缓冲区Z-深度，则返回true。<br />
-		[page:Materials LessEqualDepth] 是默认值，如果传入像素Z-depth小于或等于当前缓冲区Z-depth，则返回true。<br />
-		[page:Materials GreaterEqualDepth] 如果输入像素Z-深度大于或等于当前缓冲区Z-深度，则返回true。<br />
-		[page:Materials GreaterDepth] 如果输入像素Z-深度大于当前缓冲区Z-深度，则返回true。<br />
-		[page:Materials NotEqualDepth] 如果输入像素Z-深度不等于当前缓冲区Z-深度，则返回true。<br />
+		材料使用哪种深度函数来比较输入像素 Z-depth 与当前 Z-depth buffer 值。如果比较结果为 true，则将绘制像素。<br />
+		[page:Materials NeverDepth] 永远不会返回 true。<br />
+		[page:Materials AlwaysDepth] 永远都会返回 true。<br />
+		[page:Materials LessDepth] 如果输入像素 Z-depth 小于当前 Z-depth 的 buffer 值 ，则返回 true。<br />
+		[page:Materials LessEqualDepth] 是默认值，如果传入像素 Z-depth 小于或等于当前 Z-depth 的 buffer 值，则返回 true。<br />
+		[page:Materials GreaterEqualDepth] 如果输入像素 Z-depth 大于或等于当前 Z-depth 的 buffer 值，则返回 true。<br />
+		[page:Materials GreaterDepth] 如果输入像素 Z-depth 大于当前 Z-depth 的 buffer 值，则返回 true。<br />
+		[page:Materials NotEqualDepth] 如果输入像素 Z-depth 不等于当前 Z-depth 的 buffer 值，则返回true。<br />
 		</div>
 
-		<h2>纹理组合操作</h2>
+		<h2>Texture Combine Operations 纹理组合操作</h2>
 		<code>
 		THREE.MultiplyOperation
 		THREE.MixOperation
 		THREE.AddOperation
 		</code>
-		这些定义了表面颜色的结果如何与环境贴图（如果存在）相结合，对于[page：MeshBasicMaterial.combine MeshBasicMaterial]，[page：MeshLambertMaterial.combine MeshLambertMaterial]和[page：MeshPhongMaterial.combine MeshPhongMaterial]。<br />
+		这些定义了表面颜色的结果如何与环境贴图（如果存在）相结合，用于 [page:MeshBasicMaterial.combine MeshBasicMaterial]，[page:MeshLambertMaterial.combine MeshLambertMaterial] 和 [page:MeshPhongMaterial.combine MeshPhongMaterial]。<br />
 		[page:Constant MultiplyOperation] 是默认值，并将环境贴图颜色与表面颜色相乘。<br />
 		[page:Constant MixOperation] 使用反射率在两种颜色之间进行混合。<br />
 		[page:Constant AddOperation] 添加两种颜色。
