@@ -8,52 +8,51 @@
 		<link type="text/css" rel="stylesheet" href="page.css" />
 	</head>
 	<body>
-		<h1>Draw Mode Constants</h1>
+		<h1>绘制模式常量</h1>
 
 		<div class="desc">
-			These are valid values for [page:Mesh.drawMode], and control how the list of vertices is interpeted once sent to the GPU.<br /><br />
+			[page:Mesh.drawMode]的这些有效值，控制发送到GPU时解释顶点列表。<br /><br />
 
-			Note that these only work when [page:Mesh.geometry] is a [page:BufferGeometry]. Changing this
-			when [page:Mesh.geometry] is a [page:Geometry] will have no effect.<br /><br />
+			请注意这些仅适用于 [page:Mesh.geometry] 是 [page:BufferGeometry]。 当改变
+			[page:Mesh.geometry] 为 [page:Geometry] 将无效。<br /><br />
 
 
 
 		</div>
 
-		<h2>Draw Modes</h2>
+		<h2>绘制模式</h2>
 
 		<code>
 			THREE.TrianglesDrawMode
 		</code>
 		<div>
-			This is the default, and results in every three consecutive vertices (v0, v1, v2), (v2, v3, v5), ...
-			being interpreted as a separate triangle. <br />
-			If the number of vertices is not a multiple of 3, excess vertices are ignored.
+			这是默认值，每三个连续顶点产生一次 (v0, v1, v2), (v2, v3, v5), ...
+			被解释为一个单独当三角形。 <br />
+			如果顶点数不是3的倍数，则忽略多余的顶点。
 		</div>
 
 		<code>
 			THREE.TriangleStripDrawMode
 		</code>
 		<div>
-			This will result in a series of triangles connected in a strip, given by (v0, v1, v2), (v2, v1, v3), (v2, v3, v4), ...
-			so that every subsequent triangle shares two vertices with the previous triangle.
+			这将导致一系列三角形连接成条带，由下式给出 (v0, v1, v2), (v2, v1, v3), (v2, v3, v4), ...
+			以便每个后续三角形与前一个三角形共享两个顶点。
 		</div>
 
 		<code>
 			THREE.TriangleFanDrawMode
 		</code>
 		<div>
-			This will result in a series of triangles each sharing the first vertex (like a fan),
-			given by (v0, v1, v2), (v0, v2, v3), (v0, v3, v4), ... <br /><br />
+			这将导致一系列三角形，每个三角形共享第一个顶点（如风扇），
+			由下式给出 (v0, v1, v2), (v0, v2, v3), (v0, v3, v4), ... <br /><br />
 
-			<em>Note:</em> As of [link:https://en.wikipedia.org/wiki/DirectX#DirectX_10 DirectX10], this mode is not supported. As Chrome and Firefox
-			render WebGL using [link:https://en.wikipedia.org/wiki/ANGLE_(software) ANGLE] on Windows,
-			internally this mode will be converted to a supported mode, which will likely lead to lowered
-			performance on those browsers.
+			<em>注意:</em> 当渲染架构为[link:https://en.wikipedia.org/wiki/DirectX#DirectX_10 DirectX10], 不支持此模式。在 Windows操作系统中，Chrome 和 Firefox
+			渲染 WebGL 使用 [link:https://en.wikipedia.org/wiki/ANGLE_(software) ANGLE]。
+			在内部，此模式将转换为支持模式，这可能会导致降低浏览器的性能。
 		</div>
 
 
-		<h2>Usage</h2>
+		<h2>使用方法</h2>
 
 		<code>
 		var geometry = new THREE.Geometry();
@@ -76,7 +75,7 @@
 
 
 
-		<h2>Source</h2>
+		<h2>源码</h2>
 
 		[link:https://github.com/mrdoob/three.js/blob/master/src/constants.js src/constants.js]
 	</body>
