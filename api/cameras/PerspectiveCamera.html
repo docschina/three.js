@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../" />
+		<script src="list.js"></script>
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		[page:Object3D] &rarr; [page:Camera] &rarr;
+
+		<h1>[name]</h1>
+
+		<div class="desc">
+			是一种使用 [link:https://en.wikipedia.org/wiki/Perspective_(graphical) perspective projection] 的相机。<br /><br />
+
+			这种投影模式旨在模仿人眼所见。这是最常见的用于渲染3D场景的投影模式。
+
+		</div>
+
+
+		<h2>示例</h2>
+
+		<div>[example:canvas_geometry_birds geometry / birds ]</div>
+		<div>[example:canvas_geometry_cube geometry / cube ]</div>
+		<div>[example:webgl_animation_skinning_blending animation / skinning / blending ]</div>
+		<div>[example:webgl_animation_skinning_morph animation / skinning / blending ]</div>
+		<div>[example:webgl_effects_stereo effects / stereo ]</div>
+		<div>[example:webgl_interactive_cubes interactive / cubes ]</div>
+		<div>[example:webgl_loader_collada_skinning loader / collada / skinning ]</div>
+
+		<code>var camera = new THREE.PerspectiveCamera( 45, width / height, 1, 1000 );
+scene.add( camera );</code>
+
+
+		<h2>构造函数</h2>
+
+		<h3>[name]( [param:Number fov], [param:Number aspect], [param:Number near], [param:Number far] )</h3>
+		<div>
+		fov — 相机视锥体可视空间（Camera frustum）垂直的视野（视角）。<br />
+		aspect — 相机视锥体可视空间宽高比。<br />
+		near — 锥中距离相机最近的平面到相机的距离（基于相机所在位置，从这一near坐标值开始渲染场景）。<br />
+		far — 锥中距离相机最远的平面到相机的距离（基于相机所在位置，一直渲染到场景中最远这一far坐标值）。<br /><br />
+
+			它们一起定义了相机的 [link:https://en.wikipedia.org/wiki/Viewing_frustum viewing frustum]。
+		</div>
+
+
+		<h2>属性</h2>
+		<div>
+			通过 [page:Camera] 基类，可了解相关公共属性。<br>
+			请注意，在对大多数属性进行更改后，你必须调用
+			[page:PerspectiveCamera.updateProjectionMatrix .updateProjectionMatrix] 以使更改生效。
+		</div>
+
+		<h3>[property:Float aspect]</h3>
+		<div>相机平截头宽高比，通常是画布宽度/画布高度。 默认值是 *1*（方形画布）。</div>
+
+		<h3>[property:Float far]</h3>
+		<div>
+			锥中距离相机最远的平面到相机的距离。默认值是 *2000*。<br /><br />
+
+			有效值范围介于当前 [page:.near near] 平面的 near 值到无穷远。
+		</div>
+
+		<h3>[property:Float filmGauge]</h3>
+		<div>胶片尺寸（Film size）通常用于较大 axis。默认值是 35（毫米）。除非 .filmOffset 设置为非零值，否则此参数不会影响投影矩阵。</div>
+
+		<h3>[property:Float filmOffset]</h3>
+		<div>与 .filmGauge 单位相同的水平中心（Horizontal off-center）偏移量。默认值是 *0*。</div>
+
+		<h3>[property:Float focus]</h3>
+		<div>用于实现立体视觉和景深效果的物体距离。
+			除非正在使用 [page:StereoCamera] ，否则此参数不会影响投影矩阵。
+			默认值是 *10*。
+		</div>
+
+		<h3>[property:Float fov]</h3>
+		<div>相机视锥体可视空间（Camera frustum）垂直的视野（视角），即从下到上视角范围的角度值。默认值是 *50*。</div>
+
+		<h3>[property:Boolean isPerspectiveCamera]</h3>
+		<div>
+			用于测试此类是否是 PerspectiveCameras（透视相机）或派生于 PerspectiveCameras 。默认值是 *true*。<br /><br />
+
+			不要更改它，因为渲染器内部要使用它进行优化操作。
+		</div>
+
+
+		<h3>[property:Float near]</h3>
+		<div>
+			锥中距离相机最近的平面到相机的距离。默认值是 *0.1*。<br /><br />
+
+			有效值范围大于 0 且小于当前 [page:.far far] 平面的 far 值。
+			请注意，与 [page:OrthographicCamera] 不同的是对于透视相机的 near 平面，*0* <em>不是</em> 一个
+			有效值。
+		</div>
+
+		<h3>[property:Object view]</h3>
+		<div>
+			Frustum 窗口规格明细（specification）或 null。
+			这是使用 [page:PerspectiveCamera.setViewOffset .setViewOffset] 方法来设置
+			和使用 [page:PerspectiveCamera.clearViewOffset .clearViewOffset] 方法来清除。
+		</div>
+
+		<h3>[property:number zoom]</h3>
+		<div>获取或设置相机的缩放系数。默认值是 *1*。</div>
+
+
+		<h2>方法</h2>
+		<div>通过 [page:Camera] 基类，可了解相关公共方法。</div>
+
+		<h3>[method:null clearViewOffset]()</h3>
+		<div>删除 [page:PerspectiveCamera.setViewOffset .setViewOffset] 方法设置的任何偏移量。</div>
+
+		<h3>[method:Float getEffectiveFOV]()</h3>·
+		<div>返回考虑了缩放系数 .zoom 的当前垂直视角，单位为角度（°）。</div>
+
+		<h3>[method:Float getFilmHeight]()</h3>
+		<div>
+		返回胶片上图像的高度。如果 .aspect 小于或等于 1（人像格式（portrait format）），
+		则结果等于 .filmGauge。
+		</div>
+
+		<h3>[method:Float getFilmWidth]()</h3>
+		<div>
+		返回胶片上图像的高度。如果 .aspect 大于等于 1（景观格式（landscape format）），
+		则结果等于 .filmGauge。
+		</div>
+
+		<h3>[method:Float getFocalLength]()</h3>
+		<div>返回与 .filmGauge 相关的当前 .fov 的焦距。</div>
+
+		<h3>[method:null setFocalLength]( [param:Float focalLength] )</h3>
+		<div>
+		设置与当前 [page:PerspectiveCamera.filmGauge .filmGauge] 焦距相关的 FOV 焦距。<br /><br />
+
+		默认情况下，焦距是以 35mm（全幅）相机作为指定相机。
+		</div>
+
+		<h3>[method:null setViewOffset]( [param:Float fullWidth], [param:Float fullHeight], [param:Float x], [param:Float y], [param:Float width], [param:Float height] )</h3>
+		<div>
+		fullWidth — 多视角（multiview）设置的全宽度<br />
+		fullHeight — 多视角设置的全高度<br />
+		x — 辅助相机（subcamera）水平偏移量<br />
+		y — 辅助相机垂直偏移量<br />
+		width — 辅助相机宽度<br />
+		height — 辅助相机高度
+		</div>
+
+		<div>
+		在一个较大的截头锥体可视空间（frustum）中设置偏移量。对于多窗口或多显示器/多机器会很有用。
+		</div>
+
+		<div>
+		例如, 如果你有一组 3x2 显示屏，每个屏幕分辨率为 1920x1080，显示屏位于一个网格中，如下所示：<br />
+
+		<pre>
++---+---+---+
+| A | B | C |
++---+---+---+
+| D | E | F |
++---+---+---+
+		</pre>
+
+		然后对于每个显示屏，你将像下面这样调用：<br />
+
+		<code>var w = 1920;
+var h = 1080;
+var fullWidth = w * 3;
+var fullHeight = h * 2;
+
+// A
+camera.setViewOffset( fullWidth, fullHeight, w * 0, h * 0, w, h );
+// B
+camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 0, w, h );
+// C
+camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 0, w, h );
+// D
+camera.setViewOffset( fullWidth, fullHeight, w * 0, h * 1, w, h );
+// E
+camera.setViewOffset( fullWidth, fullHeight, w * 1, h * 1, w, h );
+// F
+camera.setViewOffset( fullWidth, fullHeight, w * 2, h * 1, w, h );
+</code>
+
+		请注意，监视器不必具有相同的大小或网格。
+		</div>
+
+		<h3>[method:null updateProjectionMatrix]()</h3>
+		<div>
+		更新相机投影矩阵。必须在相关参数都更改完成后再调用。
+		</div>
+
+		<h3>[method:JSON toJSON]()</h3>
+		<div>
+		把相机数据转换成JSON格式。
+		</div>
+
+		<h2>源代码</h2>
+
+		[link:https://github.com/mrdoob/three.js/blob/master/src/[path].js src/[path].js]
+	</body>
+</html>

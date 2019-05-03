@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../" />
+		<script src="list.js"></script>
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+
+		<h1>Polyfills</h1>
+
+		<div class="desc">three.js 包含 polyfills 的下列函数和常量。</div>
+
+		<h3>[page:Number.EPSILON Number.EPSILON]</h3>
+		<div>
+			1 和大于 1 的最小值之间的差值，这个差值可以表示为一个数字。
+			 [link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON MDN reference].
+		</div>
+
+		<h3>[page:Math.sign Math.sign]( [page:Number x] )</h3>
+		<div>
+			如果参数是正数，负数，正零或负零，
+			函数会相应地返回 1，-1，0 或者 -0。否则，返回 NaN。
+			[link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sign MDN reference].
+		</div>
+
+		<h3>[page:Function.prototype.name Function.prototype.name]( [page:Number x] )</h3>
+		<div>
+			返回一个函数的名称，（ES6 之前的实现）匿名函数则返回空字符串。
+			[link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name MDN reference].
+		</div>
+
+		<h3>[page:Object.assign Object.assign]( [page:Object target], [page:Object ...sources] )</h3>
+		<div>
+			Object.assign() 方法用于将自身所有可枚举的属性值从一个或多个源对象复制到目标对象。
+			它会返回目标对象。
+			[link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign MDN reference].
+		</div>
+
+		<h2>源代码</h2>
+
+		[link:https://github.com/mrdoob/three.js/blob/master/src/polyfills.js src/polyfills.js]
+	</body>
+</html>

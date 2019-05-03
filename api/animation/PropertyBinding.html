@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../" />
+		<script src="list.js"></script>
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		<h1>[name]</h1>
+
+		<div class="desc">
+			包含场景图中实际属性的引用，内部使用。
+		</div>
+
+
+		<h2>构造器</h2>
+
+
+		<h3>[name]( [param:Object3D rootNode], path, parsedPath )</h3>
+		<div>
+			-- [page:Object3D rootNode]:
+			-- path
+			-- parsedPath (可选)
+
+		</div>
+
+		<h2>Properties</h2>
+
+		<h3>[property:Number path]</h3>
+		<div>
+
+		</div>
+
+		<h3>[property:Number parsedPath]</h3>
+		<div>
+
+		</div>
+
+		<h3>[property:Number node]</h3>
+		<div>
+
+		</div>
+
+		<h3>[property:Number rootNode]</h3>
+		<div>
+
+		</div>
+
+		<h3>[property:Object BindingType]</h3>
+		<div>
+
+		</div>
+
+		<h3>[property:Object Versioning]</h3>
+		<div>
+
+		</div>
+
+		<h3>[property:Array GetterByBindingType]</h3>
+		<div>
+
+		</div>
+
+		<h3>[property:Array SetterByBindingTypeAndVersioning]</h3>
+		<div>
+
+		</div>
+
+
+
+		<h2>Methods</h2>
+
+		<h3>[method:null getValue]( [param:Array targetArray], [param:Number offset] )</h3>
+		<div>
+		</div>
+
+		<h3>[method:null setValue]( [param:Array sourceArray], [param:Number offset] )</h3>
+		<div>
+		</div>
+
+		<h3>[method:null bind]( )</h3>
+		<div>
+			创建场景图中一个属性的 getter / setter 对函数。内部通过 [page:PropertyBinding.getValue getValue] 和 [page:PropertyBinding.setValue setValue] 使用。
+
+		</div>
+
+		<h3>[method:null unbind]( )</h3>
+		<div>
+			解除场景图中属性的 getter / setter 对。
+		</div>
+
+		<h3>[method:Constructor Composite]( targetGroup, path, optionalParsedPath )</h3>
+		<div>
+			创建一个新的 Composite PropertyBinding。
+		</div>
+
+		<h3>[method:Constructor create]( root, path, parsedPath )</h3>
+		<div>
+			创建一个新的 Composite PropertyBinding （如果根为一个 [page:AnimationObjectGroup]）或 PropertyBinding。
+		</div>
+
+		<h3>[method:Constructor parseTrackName]( trackName )</h3>
+		<div>
+			匹配以下形式的字符串：<br />
+			-- nodeName.property<br />
+			-- nodeName.property[accessor]<br />
+			-- nodeName.material.property[accessor]<br />
+			-- uuid.property[accessor]<br />
+			-- uuid.objectName[objectIndex].propertyName[propertyIndex]<br />
+			-- parentName/nodeName.property<br />
+			-- parentName/parentName/nodeName.property[index]<br />
+			-- .bone[Armature.DEF_cog].position<br />
+			-- scene:helium_balloon_model:helium_balloon_model.position
+		</div>
+
+		<h3>[method:Constructor findNode]( root, nodeName )</h3>
+		<div>
+			寻找节点树中的节点或 [page:Skeleton Skeleton]。
+		</div>
+
+
+
+
+		<h2>源码</h2>
+
+
+		[link:https://github.com/mrdoob/three.js/blob/master/src/[path].js src/[path].js]
+	</body>
+</html>

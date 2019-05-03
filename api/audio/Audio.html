@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../" />
+		<script src="list.js"></script>
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		[page:Object3D] &rarr;
+
+		<h1>[name]</h1>
+
+		<div class="desc">
+			创建一个 non-positional （无定位的）（全局的）audio（音频）对象。<br /><br />
+
+			使用了 [link:https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API Web Audio API]。
+		</div>
+
+
+		<h2>示例</h2>
+
+		<div>
+			[example:webaudio_sandbox webaudio / sandbox ]</br>
+			[example:webaudio_visualizer webaudio / visualizer ]
+		</div>
+
+		<code>
+		// 创建一个 AudioListener 并将其加入到 camera 中
+		var listener = new THREE.AudioListener();
+		camera.add( listener );
+
+		// 创建全局音频源
+		var sound = new THREE.Audio( listener );
+
+		// 加载声音并设置为 Audio 对象的 buffer（缓冲）
+		var audioLoader = new THREE.AudioLoader();
+		audioLoader.load( 'sounds/ambient.ogg', function( buffer ) {
+			sound.setBuffer( buffer );
+			sound.setLoop( true );
+			sound.setVolume( 0.5 );
+			sound.play();
+		});
+		</code>
+
+
+		<h2>构造器</h2>
+
+
+		<h3>[name]( [param:AudioListener listener] )</h3>
+		<div>
+		listener —— （必须）[page:AudioListener AudioListener] 实例。
+		</div>
+
+
+		<h2>属性</h2>
+
+		<h3>[property:Boolean autoplay]</h3>
+		<div>是否自动播放。默认为 *false*。</div>
+
+		<h3>[property:AudioContext context]</h3>
+		<div>构造器中 [page:AudioListener listener] 的 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioContext AudioContext]。</div>
+
+		<h3>[property:Array filters]</h3>
+		<div>当前音频是否正在播放。默认为空数组。</div>
+
+		<h3>[property:GainNode gain]</h3>
+		<div>用 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createGain AudioContext.createGain]() 创建的 [link:https://developer.mozilla.org/en-US/docs/Web/API/GainNode GainNode]。
+		</div>
+
+		<h3>[property:Boolean hasPlaybackControl]</h3>
+		<div>是否可以使用 [page:Audio.play play]()，
+			[page:Audio.pause pause]() 等方法控制播放状态。默认为 *true*。</div>
+
+		<h3>[property:Number playbackRate]</h3>
+		<div>播放速度。默认为 *1*。</div>
+
+		<h3>[property:Boolean isPlaying]</h3>
+		<div>当前音频是否正在播放。</div>
+
+		<h3>[property:Number startTime]</h3>
+		<div>音频播放开始时间。同 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/start AudioBufferSourceNode.start]() 的 *when* 参数一样。默认为 *0*。</div>
+
+		<h3>[property:Number offset]</h3>
+		<div>音频开始播放时其 buffer 的时间偏移量。 同 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/start AudioBufferSourceNode.start]() 的 *offset* 参数一样。默认为 *0*。</div>
+
+		<h3>[property:String source]</h3>
+		<div>用 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createBufferSource AudioContext.createBufferSource]() 创建的 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode AudioBufferSourceNode]。
+		</div>
+
+		<h3>[property:String sourceType]</h3>
+		<div>音频源的类型。默认为字符串 'empty'。</div>
+
+		<h3>[property:String type]</h3>
+		<div>标识类型的字符串。为 'Audio'。</div>
+
+
+		<h2>方法</h2>
+
+		<h3>[method:null connect]()</h3>
+		<div>
+		连接到 [page:Audio.source]。在初始化或设置/移除 filter 时内部使用的方法。
+		
+		</div>
+
+		<h3>[method:null disconnect]()</h3>
+		<div>
+		断开 [page:Audio.source] 连接。在设置/移除 filter 时内部使用的方法。
+
+		</div>
+
+		<h3>[method:Array getFilter]()</h3>
+		<div>
+		返回 [page:Audio.filters filters] 数组的第一个元素。
+		</div>
+
+		<h3>[method:null getFilters]()</h3>
+		<div>
+		返回 [page:Audio.filters filters] 数组。
+		</div>
+
+		<h3>[method:Boolean getLoop]()</h3>
+		<div>
+		返回 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/loop source.loop] 的值。
+		 （是否循环播放）.
+		</div>
+
+		<h3>[method:GainNode getOutput]()</h3>
+		<div>
+		返回 [page:Audio.gain gainNode]。
+		</div>
+
+		<h3>[method:Number getPlaybackRate]()</h3>
+		<div>
+		返回 [page:Audio.playbackRate playbackRate] 的值。
+		</div>
+
+		<h3>[method:Number getVolume]( value )</h3>
+		<div>
+		返回当前音量。
+		</div>
+
+		<h3>[method:null play]()</h3>
+		<div>
+		若 [page:Audio.hasPlaybackControl hasPlaybackControl] 为 true，则播放。
+		</div>
+
+		<h3>[method:null pause]()</h3>
+		<div>
+		若 [page:Audio.hasPlaybackControl hasPlaybackControl] 为 true，则暂停。
+		</div>
+
+		<h3>[method:null onEnded]()</h3>
+		<div>
+		播放结束时自动触发。[page:Audio.isPlaying isPlaying] 为 false 时设置。
+		</div>
+
+		<h3>[method:Audio setBuffer]( audioBuffer )</h3>
+		<div>
+		设置 [page:Audio.source source] 为 audioBuffer，同时 [page:Audio.sourceType sourceType] 为 'buffer'。<br />
+		若设置了 [page:Audio.autoplay autoplay]，则直接播放。
+		</div>
+
+		<h3>[method:null setFilter]( filter )</h3>
+		<div>
+		向 [page:Audio.filters filters] 数组中添加 filter。
+		</div>
+
+		<h3>[method:Audio setFilters]( [param:Array value] )</h3>
+		<div>
+		value —— filters 数组。<br />
+		设置 [page:Audio.filters filters] 数组为 *value*。
+		</div>
+
+		<h3>[method:null setLoop]( [param:Boolean value] )</h3>
+		<div>
+		设置 [link:https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode/loop source.loop] 为 *value*
+		（是否循环播放）。
+		</div>
+
+		<h3>[method:null setNodeSource]( audioNode )</h3>
+		<div>
+		设置 [page:Audio.source source] 为 audioBuffer，设置 [page:Audio.sourceType sourceType] 为 'audioNode'。<br />
+		同时设置 [page:Audio.hasPlaybackControl hasPlaybackControl] 为 false。
+
+		</div>
+
+		<h3>[method:null setPlaybackRate]( [param:Number value] )</h3>
+		<div>
+		若启用 [page:Audio.hasPlaybackControl hasPlaybackControl]，设置 [page:Audio.playbackRate playbackRate] 为 *value*。
+		</div>
+
+		<h3>[method:null setVolume]( [param:Number value] )</h3>
+		<div>
+		设置音量。
+		</div>
+
+		<h3>[method:null stop]()</h3>
+		<div>
+		若启用 [page:Audio.hasPlaybackControl hasPlaybackControl] ，暂停播放，
+		重置 [page:Audio.startTime startTime] 为 *0* 并设置 [page:Audio.isPlaying isPlaying] 为 false。
+		</div>
+
+		<h2>源码</h2>
+
+		[link:https://github.com/mrdoob/three.js/blob/master/src/[path].js src/[path].js]
+	</body>
+</html>

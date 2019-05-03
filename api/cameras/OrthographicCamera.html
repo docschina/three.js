@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../" />
+		<script src="list.js"></script>
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		[page:Object3D] &rarr; [page:Camera] &rarr;
+
+		<h1>[name]</h1>
+
+		<div class="desc">
+			是一种使用 [link:https://en.wikipedia.org/wiki/Orthographic_projection orthographic projection] 的相机。<br /><br />
+
+			在此投影模式下，不管渲染图像中的对象与相机的距离有多远，
+			渲染图像中对象的大小仍保持不变。<br /><br />
+
+			这对于渲染 2D 场景和 UI 元素尤其有用。
+		</div>
+
+
+		<h2>示例</h2>
+
+		<div>[example:canvas_camera_orthographic camera / orthographic ]</div>
+		<div>[example:webgl_camera camera ]</div>
+		<div>[example:webgl_interactive_cubes_ortho interactive / cubes / ortho ]</div>
+		<div>[example:webgl_materials_cubemap_dynamic materials / cubemap / dynamic ]</div>
+		<div>[example:webgl_postprocessing_advanced postprocessing / advanced ]</div>
+		<div>[example:webgl_postprocessing_dof2 postprocessing / dof2 ]</div>
+		<div>[example:webgl_postprocessing_godrays postprocessing / godrays ]</div>
+		<div>[example:webgl_rtt rtt ]</div>
+		<div>[example:webgl_shaders_tonemapping shaders / tonemapping ]</div>
+		<div>[example:webgl_shadowmap shadowmap ]</div>
+		<div>[example:webgl_terrain_dynamic terrain / dynamic ]</div>
+
+		<code>var camera = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
+scene.add( camera );</code>
+
+
+		<h2>构造函数</h2>
+
+
+		<h3>[name]( [param:Number left], [param:Number right], [param:Number top], [param:Number bottom], [param:Number near], [param:Number far] )</h3>
+		<div>
+		left — 相机视锥体可视空间（Camera frustum）左平面。<br />
+		right — 相机视锥体可视空间右平面。<br />
+		top — 相机视锥体可视空间上平面。<br />
+		bottom — 相机视锥体可视空间下平面。<br />
+		near — 锥中距离相机最近的平面到相机的距离。<br />
+		far — 锥中距离相机最远的平面到相机的距离。<br /><br />
+
+		它们一起定义了相机的 [link:https://en.wikipedia.org/wiki/Viewing_frustum viewing frustum].
+		</div>
+
+
+		<h2>属性</h2>
+		<div>
+			通过 [page:Camera] 基类，可了解相关公共属性。<br>
+			请注意，在对大多数属性进行更改后，你必须调用
+ 			[page:OrthographicCamera.updateProjectionMatrix .updateProjectionMatrix] 以使更改生效。
+		</div>
+
+		<h3>[property:Float bottom]</h3>
+		<div>相机视锥体可视空间的下平面。</div>
+
+		<h3>[property:Float far]</h3>
+		<div>
+			锥中距离相机最远的平面到相机的距离。默认值为 *2000*.<br /><br />
+
+			有效值范围介于当前 [page:.near near] 平面的 near 值到无穷远。
+		</div>
+
+		<h3>[property:Boolean isOrthographicCamera]</h3>
+		<div>
+			用于测试此类是否是 OrthographicCameras（正投影相机）或派生于 OrthographicCameras。默认值是 *true*。<br /><br />
+
+			不要更改它，因为渲染器内部要使用它进行优化操作。
+		</div>
+
+		<h3>[property:Float left]</h3>
+		<div>相机视锥体可视空间左平面</div>
+
+		<h3>[property:Float near]</h3>
+		<div>
+			锥中距离相机最近的平面到相机的距离。默认值是 *0.1*。<br /><br />
+
+			有效值范围介于 0 到当前 [page:.far far] 平面的距离。
+			请注意，与 [page:PerspectiveCamera] 不同的是，OrthographicCamera 的 near 值可以为 *0*，它是一个合法有效值。
+
+		</div>
+
+		<h3>[property:Float right]</h3>
+		<div>相机视锥体可视空间右平面。</div>
+
+		<h3>[property:Float top]</h3>
+		<div>相机视锥体可视空间上平面。</div>
+
+		<h3>[property:Object view]</h3>
+		<div>通过 [page:OrthographicCamera.setViewOffset setViewOffset] 来设置。默认值是 *null*。</div>
+
+		<h3>[property:number zoom]</h3>
+		<div>获取或设置相机的缩放值。默认值是 *1*。</div>
+
+		<h2>方法</h2>
+		<div>通过 [page:Camera] 基类，可了解相关公共方法。</div>
+
+		<h3>[method:null setViewOffset]( [param:Float fullWidth], [param:Float fullHeight], [param:Float x], [param:Float y], [param:Float width], [param:Float height] )</h3>
+		<div>
+		fullWidth — 多视角（multiview）设置的全宽度<br />
+		fullHeight — 多视角设置的全高度<br />
+		x — 辅助相机（subcamera）水平偏移量<br />
+		y — 辅助相机垂直偏移量<br />
+		width — 辅助相机宽度<br />
+		height — 辅助相机高度<br /><br />
+
+			在一个较大的 [link:https://en.wikipedia.org/wiki/Viewing_frustum viewing frustum] 中设置偏移量。
+			这对于多窗口或多显示器/多机器设置会很有用。
+			有关如何使用它的示例，请参见 [page:PerspectiveCamera.setViewOffset PerspectiveCamera]。
+		</div>
+
+		<h3>[method:null clearViewOffset]()</h3>
+		<div>
+		清除 .setViewOffset 方法设置的所有偏移量。
+		</div>
+
+		<h3>[method:null updateProjectionMatrix]()</h3>
+		<div>
+		更新相机投影矩阵。必须在相关参数都更改完成后再调用。
+		</div>
+
+		<h3>[method:JSON toJSON]()</h3>
+		<div>
+		以JSON格式返回相机的数据。
+		</div>
+
+
+		<h2>源代码</h2>
+
+		[link:https://github.com/mrdoob/three.js/blob/master/src/[path].js src/[path].js]
+	</body>
+</html>

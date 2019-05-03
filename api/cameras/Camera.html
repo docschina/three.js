@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<base href="../../" />
+		<script src="list.js"></script>
+		<script src="page.js"></script>
+		<link type="text/css" rel="stylesheet" href="page.css" />
+	</head>
+	<body>
+		[page:Object3D] &rarr;
+
+		<h1>[name]</h1>
+
+		<div class="desc">
+			相机的抽象基类。当你构建一个新类型相机时，应该总是继承于这个类。
+		</div>
+
+
+		<h2>构造函数</h2>
+
+
+		<h3>[name]()</h3>
+		<div>
+			创建一个新的 [name]。请注意这个类并不是刻意用来直接调用的；
+			你可能需要的是一个 [page:PerspectiveCamera] 或者 [page:OrthographicCamera]。
+		</div>
+
+
+		<h2>属性</h2>
+		<div>通过 [page:Object3D] 基类，可了解相关公共属性。</div>
+
+		<h3>[property:Boolean isCamera]</h3>
+		<div>
+			用于检查此类是否是相机或派生于相机类。默认值是 *true*。<br /><br />
+
+			你不应该修改它，因为渲染器内部需要使用它进行优化操作。
+		</div>
+
+		<h3>[property:Layers layers]</h3>
+		<div>
+		 [page:Layers layers] 是相机所属的层。这是一个从 [page:Object3D] 继承而来的属性。<br /><br />
+
+
+		当相机的视角渲染完成时，物体至少需要分配一个层给相机照射到才能被看见。
+		
+		</div>
+
+		<h3>[property:Matrix4 matrixWorldInverse]</h3>
+		<div>
+			这是 matrixWorld 的逆矩阵。matrixWorld 包含相机在世界坐标系的变换矩阵。
+
+		</div>
+
+		<h3>[property:Matrix4 projectionMatrix]</h3>
+		<div>这是包含投影的矩阵。</div>
+
+
+		<h2>方法</h2>
+		<div>通过 [page:Object3D] 基类，可了解相关公共方法。</div>
+
+		<h3>[method:Camera clone]( )</h3>
+		<div>
+			返回一个拥有相同属性方法的新相机。
+		</div>
+
+		<h3>[method:Camera copy]( [param:Camera source] )</h3>
+		<div>
+		从源相机复制它的所有属性方法到当前这个相机内。
+		</div>
+
+		<h3>[method:Vector3 getWorldDirection]( [param:Vector3 optionalTarget] )</h3>
+		<div>
+		返回一个 [page:Vector3] 用来表示相机当前所看向的世界坐标系方向。<br /><br />
+
+		注意：这不是相机的 positive（正轴），而是它的负 z 轴, 是基类（ Object3D ）调用方法
+		[page:Object3D.getWorldDirection getWorldDirection] 后的相反方向。<br /><br />
+
+		假如一个 [page:Vector3 optionalTarget] vector（向量）被明确指定了, 则将结果复制到此 vector 中，
+		（可以以这种方式重复使用） 否则将创建新 vector。
+		</div>
+
+		<h2>源代码</h2>
+
+		[link:https://github.com/mrdoob/three.js/blob/master/src/[path].js src/[path].js]
+	</body>
+</html>
